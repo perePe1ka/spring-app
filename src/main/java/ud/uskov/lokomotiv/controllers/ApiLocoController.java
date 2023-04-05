@@ -16,16 +16,17 @@ public class ApiLocoController{
     public ApiLocoController(ILocoService locoService) {
         this.locoService = locoService;
     }
+
     @GetMapping("/main")
     public String gotoMain() {
         return "index";
     }
 
     @PostMapping("/create")
-    public String createLocomotive(@RequestBody Locomotive locomotive) {
+    public String createLocomotive(Locomotive locomotive) {
         locoService.create(locomotive);
         return "redirect:/";
-    }
+    } //РАБОТАЕТ
     @GetMapping("/getLoco/{id}")
     public Optional<Locomotive> getLocomotiveById(@PathVariable Long id) {
         return Optional.of(locoService.getLocomotive(id).get());
