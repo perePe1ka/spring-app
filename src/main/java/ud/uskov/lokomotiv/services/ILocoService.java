@@ -18,6 +18,6 @@ public interface ILocoService {
 
     List<Locomotive> getAll();
 
-    Locomotive updateLocomotive(Locomotive locomotive);
+    void updateLocomotive(Locomotive locomotive);
 }
 

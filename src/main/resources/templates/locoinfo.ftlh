@@ -20,12 +20,12 @@
 <b>Объём бака локомотива: </b>${locomotive.tankVolume}<br>
 <b>Статус локомотива(двигается/стоит): </b>${locomotive.isMoving}<br>
 <hr>
-<#--<form action="/loco/delete/${locomotive.ID}" method="post">-->
-<#--    <input type="submit" value="Удалить"/>-->
-<#--</form>-->
-<#--<form action="/loco/edit/${locomotive.ID}" method="get">-->
-<#--    <input type="submit" value="Изменить"/>-->
-<#--</form>-->
+<form action="/loco/delete/${locomotive.id}" method="post">
+    <input type="submit" value="Удалить"/>
+</form>
+<form action="/loco/edit/${locomotive.id}" method="get">
+    <input type="submit" value="Изменить"/>
+</form>
 <a href="/">Вернуться на главную страницу</a>
 </body>
 </html>

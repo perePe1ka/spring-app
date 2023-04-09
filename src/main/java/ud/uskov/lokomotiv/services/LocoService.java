@@ -14,6 +14,8 @@ public class LocoService implements ILocoService {
 
     private final LocoRepository locoRepos;
 
+    private List<Locomotive> locomotives;
+
     @Autowired
     public LocoService( LocoRepository locoRepository) {this.locoRepos = locoRepository;
     }
@@ -46,9 +48,14 @@ public class LocoService implements ILocoService {
 
 
     @Override
-    public Locomotive updateLocomotive(Locomotive locomotive) {
-        return locoRepos.save(locomotive);
+    public void updateLocomotive(Locomotive locomotive) {
+        locoRepos.save(locomotive);
     }
+
+
+
+
+
 
 
 }

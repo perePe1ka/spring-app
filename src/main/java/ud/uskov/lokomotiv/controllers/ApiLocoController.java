@@ -46,8 +46,29 @@ public class ApiLocoController{
         return locoService.getAll();
     }
 
-    @PutMapping("/update/{id}")
-    public Locomotive update(@PathVariable Long id, @RequestBody Locomotive locomotive) {
-        return locoService.updateLocomotive(locomotive);
+    @GetMapping("/loco/edit/{id}")
+    public String editLoco(@PathVariable Long id, Model model) {
+        model.addAttribute("locomotive", locoService.getLocomotive(id));
+        return "locoedit";
     }
+
+    @PostMapping("/edit")
+    public String update(Locomotive locomotive, Model model) {
+        locoService.updateLocomotive(locomotive);
+        model.addAttribute("locomotive", locomotive);
+        return "locoinfo";
+    }
+
+
+//    @GetMapping ("/loco/edit/{id}")
+//    public String editLoco(@PathVariable Long id, Model model){
+//        model.addAttribute("locomotive", locoService.getLocomotive(id));
+//        return "locoedit";
+//    }
+//    @PutMapping("/edit")
+//    public String update(Locomotive locomotive) {
+//        locoService.updateLocomotive(locomotive);
+//        return "locoinfo";
+//    }
+
 }
