@@ -11,11 +11,11 @@
 <h1>Локомотивное депо</h1>
 <hr>
 
-<#--<#list Locomotive as locomotive>-->
-<#--    <div>-->
-<#--        <p><b><a href="/locomotive/${locomotive.id}">${locomotive.serialNumber}</a></b><br> ${locomotive.model} ${locomotive.axFormule} ${locomotive.powerOnDiesel}</p>-->
-<#--    </div>-->
-<#--</#list>-->
+<#list locomotives as locomotive>
+    <div>
+        <p><b><a href="/locomotive/${locomotive.id}">${locomotive.serialNumber}</a></b><br> ${locomotive.model} ${locomotive.axFormule} ${locomotive.powerOnDiesel}</p>
+    </div>
+</#list>
 
 <hr>
 <h3>Добавить локомотив</h3>

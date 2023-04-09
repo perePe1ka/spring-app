@@ -2,11 +2,12 @@ package ud.uskov.lokomotiv.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ud.uskov.lokomotiv.models.Locomotive;
 import ud.uskov.lokomotiv.services.ILocoService;
+
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ApiLocoController{
@@ -28,8 +29,9 @@ public class ApiLocoController{
         return "redirect:/";
     } //РАБОТАЕТ
     @GetMapping("/getLoco/{id}")
-    public Optional<Locomotive> getLocomotiveById(@PathVariable Long id) {
-        return Optional.of(locoService.getLocomotive(id).get());
+    public String getLocomotiveById(@PathVariable Long id, Model model) {
+        model.addAttribute("locomotive", locoService.getLocomotive(id));
+        return "locomotives";
     }
     @DeleteMapping("/deleteLoco/{id}")
     public void deleteLocomotiveById(@PathVariable Long id) {
