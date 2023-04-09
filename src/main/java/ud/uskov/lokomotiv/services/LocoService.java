@@ -24,8 +24,14 @@ public class LocoService implements ILocoService {
     }
 
     @Override
-    public Optional<Locomotive> getLocomotive(Long id){
-        return locoRepos.findById(id);
+    public Locomotive getLocomotive(Long id){
+        Optional<Locomotive> optionalLocomotive = locoRepos.findById(id);
+        if (optionalLocomotive.isPresent()) {
+            return optionalLocomotive.get();
+        } else {
+            // Обработка ошибки, если объект не найден
+            return null;
+        }
     }
 
     @Override

@@ -37,14 +37,28 @@ public class Locomotive {
     @Column
     private Integer tankVolume; //общий объём бака
     @Column
-    private Boolean isMoving; //двигается?
+    private String isMoving; //двигается?
 
     public Locomotive() {
 
     }
 
-    public Locomotive(Long id, Long serialNumber, String model, String axFormule, Integer powerOnDiesel, Double structuralSpeed, Integer fuelReserve, Double minRadius, String dimensions, Long mileage, Integer tankVolume, boolean isMoving) {
+    public Locomotive(Long id, Long serialNumber, String model, String axFormule, Integer powerOnDiesel, Double structuralSpeed, Integer fuelReserve, Double minRadius, String dimensions, Long mileage, Integer tankVolume, String isMoving) {
         this.id = id;
+        this.serialNumber = serialNumber;
+        this.model = model;
+        this.axFormule = axFormule;
+        this.powerOnDiesel = powerOnDiesel;
+        this.structuralSpeed = structuralSpeed;
+        this.fuelReserve = fuelReserve;
+        this.minRadius = minRadius;
+        this.dimensions = dimensions;
+        this.mileage = mileage;
+        this.tankVolume = tankVolume;
+        this.isMoving = isMoving;
+    }
+
+    public Locomotive(Long serialNumber, String model, String axFormule, Integer powerOnDiesel, Double structuralSpeed, Integer fuelReserve, Double minRadius, String dimensions, Long mileage, Integer tankVolume, String isMoving) {
         this.serialNumber = serialNumber;
         this.model = model;
         this.axFormule = axFormule;

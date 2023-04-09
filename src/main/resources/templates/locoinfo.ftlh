@@ -7,7 +7,7 @@
 <h1>Локомотив</h1>
 <hr>
 <h4>Подробная информация о локомотиве</h4>
-<p>${locomotive.ID}</p>
+<p>${locomotive.id}</p>
 <b>Серийный номер: </b>${locomotive.serialNumber}<br>
 <b>Модель локомотива: </b>${locomotive.model}<br>
 <b>Осевая формула локомотива: </b>${locomotive.axFormule}<br>
@@ -20,12 +20,12 @@
 <b>Объём бака локомотива: </b>${locomotive.tankVolume}<br>
 <b>Статус локомотива(двигается/стоит): </b>${locomotive.isMoving}<br>
 <hr>
-<form action="/locomotive/delete/${locomotive.ID}" method="post">
-    <input type="submit" value="Удалить"/>
-</form>
-<form action="/locomotive/edit/${locomotive.ID}" method="get">
-    <input type="submit" value="Изменить"/>
-</form>
+<#--<form action="/loco/delete/${locomotive.ID}" method="post">-->
+<#--    <input type="submit" value="Удалить"/>-->
+<#--</form>-->
+<#--<form action="/loco/edit/${locomotive.ID}" method="get">-->
+<#--    <input type="submit" value="Изменить"/>-->
+<#--</form>-->
 <a href="/">Вернуться на главную страницу</a>
 </body>
 </html>

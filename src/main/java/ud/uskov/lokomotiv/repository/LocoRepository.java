@@ -7,4 +7,5 @@ import ud.uskov.lokomotiv.models.Locomotive;
 
 @Repository
 public interface LocoRepository extends CrudRepository<Locomotive, Long> {
+
 }

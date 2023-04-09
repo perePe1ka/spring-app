@@ -18,25 +18,28 @@ public class ApiLocoController{
         this.locoService = locoService;
     }
 
-    @GetMapping("/main")
-    public String gotoMain() {
+    @GetMapping("/")
+    public String locomotives(Model model) {
+        model.addAttribute("locomotives", locoService.getAll());
         return "index";
+    }
+    @GetMapping("/loco/{id}")
+    public String getLocomotiveById(@PathVariable Long id, Model model) {
+        model.addAttribute("locomotive", locoService.getLocomotive(id));
+        return "locoinfo";
     }
 
     @PostMapping("/create")
     public String createLocomotive(Locomotive locomotive) {
         locoService.create(locomotive);
         return "redirect:/";
-    } //РАБОТАЕТ
-    @GetMapping("/getLoco/{id}")
-    public String getLocomotiveById(@PathVariable Long id, Model model) {
-        model.addAttribute("locomotive", locoService.getLocomotive(id));
-        return "locomotives";
-    }
-    @DeleteMapping("/deleteLoco/{id}")
-    public void deleteLocomotiveById(@PathVariable Long id) {
+    }                                 //РАБОТАЕТ
+    @PostMapping("/loco/delete/{id}")
+    public String deleteLocomotiveById(@PathVariable Long id) {
         locoService.deleteLocomotive(id);
+        return "redirect:/";
     }
+
 
     @GetMapping("/getAll")
     public List<Locomotive> getAll() {

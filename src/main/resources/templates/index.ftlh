@@ -13,7 +13,7 @@
 
 <#list locomotives as locomotive>
     <div>
-        <p><b><a href="/locomotive/${locomotive.id}">${locomotive.serialNumber}</a></b><br> ${locomotive.model} ${locomotive.axFormule} ${locomotive.powerOnDiesel}</p>
+        <p><b><a href="/loco/${locomotive.id}">${locomotive.id}</a></b><br> </p>
     </div>
 </#list>
 
@@ -62,7 +62,7 @@
     </div>
     <div>
         <label for="isMoving">Is Moving:</label>
-        <input type="checkbox" id="isMoving" name="isMoving" value="false">
+        <input type="text" id="isMoving" name="isMoving" value="false">
     </div>
     <div>
         <button type="submit">Create Locomotive</button>
