@@ -12,10 +12,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -81,13 +78,14 @@ public class ILocoMovingRepository {
         LocoWriteAll(locoMovings);
     }
 
-    public void update(LocoMoving locoMoving, int id) throws ParserConfigurationException, IOException, SAXException {
+    public void update(LocoMoving locoMoving, int id) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         List<LocoMoving> locoMovings = findAll();
         for (int i = 0; i < locoMovings.size(); i++) {
             if (locoMovings.get(i).getSerialNumber() == id) {
                 locoMovings.set(i, locoMoving);
             }
         }
+        LocoWriteAll(locoMovings); // добавляем сохранение списка после его обновления
     }
 
 
@@ -121,7 +119,7 @@ public class ILocoMovingRepository {
 
         // write dom document to a file
         try (FileOutputStream output =
-                     new FileOutputStream("src/main/resources/data.xml")) {
+                     new FileOutputStream("src/main/resources/LocomotiveMovingContext.xml")) {
             writeXml(doc, output);
         } catch (IOException e) {
             e.printStackTrace();
@@ -141,4 +139,14 @@ public class ILocoMovingRepository {
         transformer.transform(source, result);
 
     }
+
+//    private static void addDataToXml(Document doc, String data) throws TransformerException, ParserConfigurationException, FileNotFoundException {
+//        Element root = doc.getDocumentElement();
+//
+//        Element newData = doc.createElement("data");
+//        newData.setTextContent(data);
+//        root.appendChild(newData);
+//
+//        writeXml(doc, new FileOutputStream("data.xml"));
+//    }
 }

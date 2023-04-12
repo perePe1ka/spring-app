@@ -27,9 +27,9 @@ public class LocoMovingService {
         return iLocoMovingRepository.findById(id);
     }
 
-    public boolean update(LocoMoving locoMoving, int id) throws ParserConfigurationException, IOException, SAXException {
+    public boolean update(LocoMoving locoMoving, int id) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         iLocoMovingRepository.update(locoMoving,id);
-        return true;
+        return false;
     }
 
     public boolean delete(int id) throws ParserConfigurationException, IOException, TransformerException, SAXException {

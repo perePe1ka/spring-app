@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@ResponseBody
 @RequestMapping("/locoMove")
 @AllArgsConstructor
 public class LocoMovingController {
@@ -28,6 +27,7 @@ public class LocoMovingController {
 
 
     @GetMapping(value = "/read")
+    @ResponseBody
     public List<LocoMoving> read() throws ParserConfigurationException, IOException, SAXException {
         return locoMovingService.readAll();
     }
@@ -40,7 +40,7 @@ public class LocoMovingController {
                 : new  ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     @PutMapping(value = "/{id}")
-    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody LocoMoving locoMoving) throws ParserConfigurationException, IOException, SAXException {
+    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody LocoMoving locoMoving) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         final boolean updated = locoMovingService.update(locoMoving, id);
 
         return updated
