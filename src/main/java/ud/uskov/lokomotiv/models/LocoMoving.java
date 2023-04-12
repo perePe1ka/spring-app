@@ -1,15 +1,16 @@
 package ud.uskov.lokomotiv.models;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@XmlRootElement
+@AllArgsConstructor
 @Getter
 @Setter
+@ToString
+@NoArgsConstructor
 public class LocoMoving {
-    private Long id;
-    private Long mileage; // общий пробег
-    private Integer tankVolume; //общий объём бака
-    private String isMoving; //двигается?
+    private int id;
+    private int serialNumber;
+    private int mileage; // общий пробег
+    private int tankVolume; //общий объём бака
+    private boolean isMoving; //двигается?
 }

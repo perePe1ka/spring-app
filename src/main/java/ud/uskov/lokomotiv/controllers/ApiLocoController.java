@@ -33,7 +33,7 @@ public class ApiLocoController{
     public String createLocomotive(Locomotive locomotive) {
         locoService.create(locomotive);
         return "redirect:/";
-    }                                 //РАБОТАЕТ
+    }
     @PostMapping("/loco/delete/{id}")
     public String deleteLocomotiveById(@PathVariable Long id) {
         locoService.deleteLocomotive(id);
@@ -58,17 +58,4 @@ public class ApiLocoController{
         model.addAttribute("locomotive", locomotive);
         return "locoinfo";
     }
-
-
-//    @GetMapping ("/loco/edit/{id}")
-//    public String editLoco(@PathVariable Long id, Model model){
-//        model.addAttribute("locomotive", locoService.getLocomotive(id));
-//        return "locoedit";
-//    }
-//    @PutMapping("/edit")
-//    public String update(Locomotive locomotive) {
-//        locoService.updateLocomotive(locomotive);
-//        return "locoinfo";
-//    }
-
 }

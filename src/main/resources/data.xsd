@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="locoMovings" type="LocoType"/>
+    <xsd:complexType name="LocoType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:boolean" name="isMoving"/>
+                <xsd:attribute type="xsd:integer" name="id" />
+                <xsd:attribute type="xsd:integer" name="mileage"/>
+                <xsd:attribute type="xsd:integer" name="tankVolume"/>
+                <xsd:attribute type="xsd:integer" name="serialNumber"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="LocosType" mixed="true">
+        <xsd:sequence>
+            <xsd:element type="LocosType" name="locoMoving" maxOccurs="unbounded" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
