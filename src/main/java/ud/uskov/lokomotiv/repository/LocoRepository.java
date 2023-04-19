@@ -9,3 +9,5 @@ import ud.uskov.lokomotiv.models.Locomotive;
 public interface LocoRepository extends CrudRepository<Locomotive, Long> {
 
 }
+
+

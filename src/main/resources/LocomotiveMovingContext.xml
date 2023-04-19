@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <locoMovings>
-    <locoMoving id="0" isMoving="false" mileage="0" serialNumber="0" tankVolume="0"/>
-    <locoMoving id="0" isMoving="false" mileage="0" serialNumber="0" tankVolume="0"/>
-    <locoMoving id="0" isMoving="false" mileage="0" serialNumber="0" tankVolume="0"/>
-    <locoMoving id="1" isMoving="false" mileage="56" serialNumber="12312" tankVolume="23423"/>
-    <locoMoving id="2" isMoving="false" mileage="122342312" serialNumber="243423" tankVolume="5423426"/>
+    <locoMoving id="1" isMoving="false" mileage="12345678" serialNumber="500" tankVolume="160000"/>
+    <locoMoving id="4" isMoving="false" mileage="12345678" serialNumber="500" tankVolume="160000"/>
+    <locoMoving id="7" isMoving="false" mileage="500" serialNumber="160000" tankVolume="12345678"/>
 </locoMovings>
