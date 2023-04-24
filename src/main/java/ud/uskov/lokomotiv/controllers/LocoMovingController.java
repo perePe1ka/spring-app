@@ -20,10 +20,15 @@ import java.util.List;
 public class LocoMovingController {
     private final LocoMovingService locoMovingService;
 
+
     @PostMapping()
     public ResponseEntity<?> create(@RequestBody LocoMoving locoMoving) throws ParserConfigurationException, IOException, TransformerException, SAXException {
         if (isDuplicateId(locoMoving.getId())) {
-            return new ResponseEntity<>("Ебло стяни, ID занято", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Ебло стяни, ID уже занято!", HttpStatus.BAD_REQUEST);
+        }
+        int lastId = locoMovingService.getLastId();
+        if (locoMoving.getId() != lastId + 1) {
+            return new ResponseEntity<>("Ты блять цифры запоминаешь? Пиши цифры по порядку сука!", HttpStatus.BAD_REQUEST);
         }
         locoMovingService.creat(locoMoving);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -40,14 +45,6 @@ public class LocoMovingController {
         return Collections.singletonList(locoMovingService.read(id));
     }
 
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<?> update(@PathVariable(name = "id") Integer id, @RequestBody LocoMoving locoMoving) throws ParserConfigurationException, IOException, SAXException, TransformerException {
-//        final boolean updated = locoMovingService.update(locoMoving, id);
-//
-//        return updated
-//                ? new ResponseEntity<>(HttpStatus.OK)
-//                : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
-//    }
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<?> update(@PathVariable(name = "id") Integer id, @RequestBody LocoMoving locoMoving) throws ParserConfigurationException, IOException, SAXException, TransformerException {

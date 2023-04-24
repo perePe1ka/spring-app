@@ -8,7 +8,7 @@ public class LocoMovingRepository implements ErrorHandler {
     public void warning(SAXParseException e)  {
         System.out.println(e.getMessage());
         System.out.println("---------------------------------------------------");
-        System.out.println("Dmitriy, its work");
+        System.out.println("Dmitriy, ahuet, its work");
         System.out.println("---------------------------------------------------");
 
     }
@@ -16,7 +16,7 @@ public class LocoMovingRepository implements ErrorHandler {
     public void error(SAXParseException e)  {
         System.out.println(e.getMessage());
         System.out.println("---------------------------------------------------");
-        System.out.println("Dmitriy, its work");
+        System.out.println("Dmitriy, ahuet, its work");
         System.out.println("---------------------------------------------------");
 
 
@@ -26,7 +26,7 @@ public class LocoMovingRepository implements ErrorHandler {
     public void fatalError(SAXParseException e) {
         System.out.println(e.getMessage());
         System.out.println("---------------------------------------------------");
-        System.out.println("Dmitriy, its work");
+        System.out.println("Dmitriy, ahuet, its work");
         System.out.println("---------------------------------------------------");
 
     }

@@ -42,5 +42,16 @@ public class LocoMovingService implements ILocoMovingService{
         return true;
     }
 
+    public int getLastId() throws ParserConfigurationException, IOException, SAXException {
+        ILocoMovingRepository locoMovingRepository = new ILocoMovingRepository();
+        List<LocoMoving> locoMovingList = locoMovingRepository.findAll();
+        if (!locoMovingList.isEmpty()) {
+            LocoMoving lastLocoMoving = locoMovingList.get(locoMovingList.size() - 1);
+            return lastLocoMoving.getId();
+        } else {
+            return 0;
+        }
+    }
+
 
 }
